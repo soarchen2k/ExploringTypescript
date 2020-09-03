@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Book, Video} from '../model/Book';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,10 @@ export class AppComponent {
   // 在 constructor 中运行 exploringArrays 查看数组的初始化情况
   constructor() {
     // this.exploringArrays();
-    this.exploringObjects();
+    // this.exploringObjects();
+    // this.exploringMyObject();
+    // this.exploringLambdaMethode();
+    this.objectEquality();
   }
 
   /**
@@ -104,4 +108,40 @@ export class AppComponent {
     console.log(myConsumer);
     console.log(typeof myConsumer);
   }
+
+  // TypeScript 可以在一个 TS 文件中创建多个类，引用的时候只需要分别 import 即可
+  exploringMyObject() {
+    let myBook = new Book(null, 'Tom', 34.99);
+
+    console.log(myBook);
+    console.log(typeof myBook);
+    console.log('Price of the book: ' + myBook.priceWithTax(.2));
+    console.log(`Price of the book: ${myBook.priceWithTax(.2)}`);
+
+    let myVideo = new Video();
+    myVideo.author = 'Kate';
+    myVideo.price = 65.78;
+    myVideo.title = 'Next';
+    console.log(myVideo);
+  }
+
+  // 使用 Lambda 表达式
+  exploringLambdaMethode() {
+    const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    const oddNumbers = numbers.filter(
+      num => num % 2 === 1
+    );
+    const evenNumbers = numbers.filter(
+      num => {
+        return num % 2 === 0;
+      }
+    );
+    console.log(oddNumbers);
+    console.log(evenNumbers);
+  }
+
+  objectEquality() {
+
+  }
+
 }
