@@ -141,7 +141,17 @@ export class AppComponent {
   }
 
   objectEquality() {
+    let myValue: number;
+    // TypeScript 中的 == 表示抽象相等，=== 表示值相等
+    console.log(1 == 1);
+    console.log(1 === 1);
+    console.log('1' == 1);
+    console.log('1' === 1);
 
+    console.log(myValue == null);
+    console.log(myValue == undefined);
+    console.log(myValue === null);
+    console.log(myValue === undefined);
   }
 
 }
