@@ -1,5 +1,8 @@
 export enum SubjectArea {
-  ART, HISTORY, SCIENCE, LITERATURE,
+  ART = 'Arts and Crafts',
+  HISTORY = 'History',
+  SCIENCE = 'Science and Maths',
+  LITERATURE = 'Classic Literature',
 }
 
 export class Book {
