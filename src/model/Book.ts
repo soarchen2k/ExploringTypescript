@@ -1,3 +1,7 @@
+export enum SubjectArea {
+  ART, HISTORY, SCIENCE, LITERATURE,
+}
+
 export class Book {
   title: string;
   author: string;
