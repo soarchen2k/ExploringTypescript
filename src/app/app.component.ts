@@ -15,14 +15,24 @@ export class AppComponent {
   }
 
   exploringEnums() {
-    // 对 Enum 进行 forEach 循环遍历时，需要用 in 关键字，区别于对数组进行遍历
-    // 直接遍历 enum，会把 key 和 value 都分别遍历出来
-    // 当 ENUM 中有自定义 values 的时候，可以用下面这种方式遍历
+    // 对具有自定义 value 的 enum 来说，不能直接用 'value' 来取 value 的值，但可以用以下方法来获取
+    let label1;
     for (const subject in SubjectArea) {
-      console.log(subject);
-      console.log(SubjectArea[subject]);
+      if (SubjectArea[subject] === 'Science and Maths') {
+        label1 = subject;
+      }
     }
+    console.log(`The matched label 1 is : ${label1}`);
 
+    let label2 = Object.keys(SubjectArea).find(it => {
+      return SubjectArea[it] === 'History';})
+    console.log(`The matched label 2 is : ${label2}`);
+
+    let label3 = Object.keys(SubjectArea).find(
+      it => SubjectArea[it] === 'Classic Literature'
+    );
+
+    console.log(`The matched label 3 is : ${label3}`);
   }
 
 }
